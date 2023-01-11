@@ -61,10 +61,9 @@ namespace PhpTravel
             driver.FindElement(By.XPath("//a[text()='flights']")).Click();
 
             driver.FindElement(By.Id("autocomplete")).SendKeys(FlyingFrom);
-            // driver.FindElement(By.XPath("//b[text()='']")).Click();
-
+           
             driver.FindElement(By.Id("autocomplete2")).SendKeys(ToDestination);
-            //driver.FindElement(By.XPath("//b[text()='BLR']")).Click();
+           
 
             driver.FindElement(By.Id("departure")).Clear();
             driver.FindElement(By.Id("departure")).SendKeys(DepartureDate);
@@ -73,5 +72,8 @@ namespace PhpTravel
             driver.FindElement(By.Id("flights-search")).Click();
         }
 
+      
+
     }
+
 }

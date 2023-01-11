@@ -47,13 +47,7 @@ namespace PhpTravel.Utilities
            return data;
         }
 
-        //public static object[] BookingInValidData()
-        //{
-        //    object[] data = ExcelUtil.GetSheetIntoObjectArray
-        //        (@"C:\Users\patilbs\Desktop\C#\AutomationPhpTravel\PhpTravel\TestData\Php_Data.xlsx"
-        //           , "BookingInValidData");
-        //    return data;
-        //}
+       
 
 
     }
