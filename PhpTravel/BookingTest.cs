@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using PhpTravel.Base;
+using PhpTravel.Pages;
 using PhpTravel.Utilities;
 using System;
 using System.Collections.Generic;
@@ -38,19 +39,30 @@ namespace PhpTravel
         [Test, TestCaseSource(typeof(Datasource), nameof(Datasource.ValidBookingData))]
         public void ValidBookingdata(string FlyingFrom, string ToDestination, string DepartureDate)
         {
+
             driver.FindElement(By.XPath("//a[text()='flights']")).Click();
 
-            driver.FindElement(By.Id("autocomplete")).SendKeys(FlyingFrom);
+            ValidBookingPage Bookingpage = new ValidBookingPage(driver);
+            Bookingpage.enterflyingfrom(FlyingFrom);
+            Bookingpage.EnterFrom(ToDestination);
+            Bookingpage.EnterDate(DepartureDate);
+            Bookingpage.clickTravellers();
+            Bookingpage.clickon();
+            Bookingpage.ClickOnsearch();
+            Bookingpage.clickonTrav();
+            
+
+            //driver.FindElement(By.Id("autocomplete")).SendKeys(FlyingFrom);
             // driver.FindElement(By.XPath("//b[text()='']")).Click();
 
-            driver.FindElement(By.Id("autocomplete2")).SendKeys(ToDestination);
+            /*driver.FindElement(By.Id("autocomplete2")).SendKeys(ToDestination);
             //driver.FindElement(By.XPath("//b[text()='BLR']")).Click();
 
             driver.FindElement(By.Id("departure")).Clear();
             driver.FindElement(By.Id("departure")).SendKeys(DepartureDate);
             driver.FindElement(By.XPath("//p[contains(text(),'Travellers ')]")).Click();
             driver.FindElement(By.XPath("//i[@class='la la-plus']")).Click();
-            driver.FindElement(By.Id("flights-search")).Click();
+            driver.FindElement(By.Id("flights-search")).Click();*/
         }
 
 
